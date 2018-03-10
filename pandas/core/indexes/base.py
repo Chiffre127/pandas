@@ -3107,6 +3107,8 @@ class Index(IndexOpsMixin, PandasObject):
 
     def isin(self, values, level=None):
         """
+        TODO summary.
+
         Compute boolean array of whether each index value is found in the
         passed set of values.
 
@@ -3117,11 +3119,23 @@ class Index(IndexOpsMixin, PandasObject):
 
             .. versionadded:: 0.18.1
 
-            Support for values as a set
+            Support for values as a set.
 
-        level : str or int, optional
+        level : str or int, optional in the case of Index, compulsory on MultiIndex
             Name or position of the index level to use (if the index is a
             MultiIndex).
+
+        Returns
+        -------
+        is_contained : ndarray (boolean dtype)
+
+        See also
+        --------
+        DatetimeIndex.isin : an Index of :class:`Datetime` s
+        TimedeltaIndex : an Index of :class:`Timedelta` s
+        PeriodIndex : an Index of :class:`Period` s
+        MultiIndex.isin : Same for `MultiIndex`
+        NumericIndex.isin : Same for `Int64Index`, `UInt64Index`, `Float64Index`
 
         Notes
         -----
@@ -3130,10 +3144,9 @@ class Index(IndexOpsMixin, PandasObject):
         - if it is the name of one *and only one* index level, use that level;
         - otherwise it should be a number indicating level position.
 
-        Returns
-        -------
-        is_contained : ndarray (boolean dtype)
-
+        Examples
+        --------
+        Aaa.
         """
         if level is not None:
             self._validate_index_level(level)
