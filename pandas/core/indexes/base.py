@@ -3110,7 +3110,7 @@ class Index(IndexOpsMixin, PandasObject):
         TODO summary.
 
         Compute boolean array of whether each index value is found in the
-        passed set of values.
+        passed set of 'values'.
 
         Parameters
         ----------
